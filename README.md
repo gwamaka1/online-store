@@ -1,15 +1,20 @@
-# Project Title
+#Online Store
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+online-store is a Java console application that simulates a basic retail shopping experience. It allows users to browse a product inventory, add items to a cart by product ID, and complete a checkout process with payment handling and receipt generation. The application is intended for students and developers learning Java fundamentals such as object-oriented programming, collections, and console I/O. It solves the problem of demonstrating a realistic, end-to-end shopping workflow in a simple, text-based environment without requiring a database or UI framework.
 
 ## User Stories
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+-	As a shopper, I want to view all available products so that I can decide what to purchase.
+-	As a shopper, I want to search for a product by ID so that I can quickly add specific items to my cart.
+-	As a shopper, I want to add multiple items to my cart so that I can purchase everything I need in one session.
+-	As a shopper, I want to check out and enter a payment amount so that I can complete my purchase and receive change.
+-	As a shopper, I want to receive a receipt after checkout so that I have a record of what I bought.
+-	As a user, I want to receive immediate feedback so I can understand what to do next.
+
 
 ## Setup
 
@@ -39,14 +44,18 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](path/to/your/screenshot.png)
+![Application Screenshot](path/to/your/screenshot.png)![](C:\Users\mwamt\OneDrive\Pictures\Screenshots%201\Screenshot%202026-05-07%20121853.png)![](C:\Users\mwamt\OneDrive\Pictures\Screenshots 1\Screenshot 2026-05-07 121846.png)
 
 ## Future Work
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+-	Add a user login and account system to save cart history across sessions.
+-	Implement product categories and filtering so users can browse by type.
+-	Add inventory management features so stock levels decrease as items are purchased.
+-	Persist inventory and transaction data using file I/O or a lightweight database (e.g. SQLite).
+
+
 
 ## Resources
 
@@ -54,16 +63,16 @@ List resources such as tutorials, articles, or documentation that helped you dur
 
 - [Java Programming Tutorial](https://www.example.com)
 - [Effective Java](https://www.example.com)
+- 	Java Collections Framework — ArrayList used for inventory and cart management.
 
 ## Team Members
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+-Gwamaka Mwamtobe
 
 ## Thanks
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Mentor's Name] for continuous support and guidance.
-- A special thanks to all teammates for their dedication and teamwork.
+- Thank you to Raymond for continuous support and guidance.
+
  

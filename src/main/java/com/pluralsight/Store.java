@@ -92,27 +92,21 @@ public class Store {
             System.out.println(p);
         }
         System.out.println("Type in an id you want to add to cart or else type X to return to main menu");
-        String input = scanner.nextLine();
-        boolean found = false;
-        for (Product p: inventory){
-            if(input.equalsIgnoreCase(p.getId())){
-                System.out.println("we found the product "+ p.getName()+".... adding to cart");
-                cart.add(p);
-                found = true;
+        String input = scanner.nextLine().trim();
 
-            }
+       cart.add(findProductById(input,inventory));
+
+
+
 
         }
-        if(!found){
-            System.out.println("couldnt find productu");
-            return;
-        }
+
 
 
 
         // TODO: show each product (id, name, price),
         //       prompt for an id, find that product, add to cart
-    }
+
 
     /**
      * Shows the contents of the cart, calculates the total,
@@ -161,10 +155,32 @@ public class Store {
      * 3. Display a simple receipt.
      * 4. Clear the cart.
      */
-    public static void checkOut(ArrayList<Product> cart,
-                                double totalAmount,
-                                Scanner scanner) {
-        System.out.println("confirm if you want");
+    public static void checkOut(ArrayList<Product> cart, double totalAmount, Scanner scanner) {
+        System.out.println("Confirm if you want to checkout (c), or anything else to cancel:");
+        String input = scanner.nextLine().trim();
+
+        if (!input.equalsIgnoreCase("c")) {
+            System.out.println("Checkout cancelled. Returning...");
+            return;
+        }
+
+        System.out.println("PAYMENT:\nENTER AMOUNT:");
+        double amountPaid = Double.parseDouble(scanner.nextLine().trim()); // avoid nextDouble() newline bug
+
+        if (amountPaid < totalAmount) {
+            System.out.printf("Amount entered ($%.2f) is less than total due ($%.2f).\n", amountPaid, totalAmount);
+            return;
+        }
+
+        double change = amountPaid - totalAmount;
+        System.out.printf("Your change is $%.2f\n", change);
+        System.out.printf("%24s\n", "RECEIPT");
+
+        for (Product p : cart) {
+            System.out.println(p);
+        }
+
+        cart.clear();
     }
 
     /**
@@ -173,8 +189,15 @@ public class Store {
      * @return the matching Product, or null if not found
      */
     public static Product findProductById(String id, ArrayList<Product> inventory) {
-        // TODO: loop over the list and compare ids
+        for (Product p : inventory) {
+            if (id.equalsIgnoreCase(p.getId())) {
+                System.out.println("We found the product " + p.getName() + ".... adding to cart");
+                return p;
+            }
+        }
+
+        System.out.println("Couldn't find the product");
         return null;
     }
-}
+    }
 
