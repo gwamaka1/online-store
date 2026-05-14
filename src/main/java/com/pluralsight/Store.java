@@ -94,8 +94,11 @@ public class Store {
         System.out.println("Type in an id you want to add to cart or else type X to return to main menu");
         String input = scanner.nextLine().trim();
 
-       cart.add(findProductById(input,inventory));
-
+        if (input.equalsIgnoreCase("X")) return; // go back to main menu
+        Product found = findProductById(input, inventory);
+        if (found != null) {
+            cart.add(found);
+        }
 
 
 
@@ -128,11 +131,10 @@ public class Store {
         }
         System.out.printf("$%.2f\n",totalCost);
         boolean running = true;
-
         while(running) {
-            Scanner scan = new Scanner(System.in);
+
             System.out.println("do you want  to checkout(c)? or return(x)");
-            String input = scan.nextLine().trim();
+            String input = scanner.nextLine().trim();
             if (input.equalsIgnoreCase("c")) {
                 checkOut(cart, totalCost, scanner);
                 running = false;
